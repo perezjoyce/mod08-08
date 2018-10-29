@@ -22,33 +22,25 @@ $(document).ready(()=> {
 				// data will hold all value echoed by process.php
 				"success" :(data)=> {
 
-					let pokemonCaught = JSON.parse(data);
-					// if (data == true)
 					if (data == true) {
 						$("#summary").css("color","red");
 						$("#summary").html("Empty!");
 					} 
 
-					else if (data == pokemonCaught.name){
-						// pokemonCaught = JSON.parse(data);
+					else if (data == false) { 
+						$("#summary").html("");
+						$("#summary").css("color","green");
+						$("#summary").html("Wrong!");
+					}
 
+					else {
+						let pokemonCaught = JSON.parse(data);
 						$("#summary").html(""); // TO PREVENT FROM CONCATINATION TO EMPTY
 						$("#summary").css("color","gray");
 						$("#summary").append("Name: " + pokemonCaught.name + "<br>");
 						$("#summary").append("Type: " + pokemonCaught.type + "<br>");
 						$("#summary").append("Basic Move: " + pokemonCaught.moves.basic + "<br>");
 						$("#summary").append("Special Move: " + pokemonCaught.moves.special + "<br>");
-					}
-
-
-					else {
-						// pokemonCaught = JSON.parse(data);
-
-						$("#summary").html(""); // TO PREVENT FROM CONCATINATION TO EMPTY
-						$("#summary").css("color","red");
-						$("#summary").html("Doesn't exist");
-
-
 					}
 
 				}		
@@ -64,7 +56,7 @@ $(document).ready(()=> {
 	$("#btnDelete").click(()=>{
 		
 		$("#search").val("");
-		$("#summary").empty();
+		$("#summary").html("");
 			
 	});
 

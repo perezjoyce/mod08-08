@@ -1,21 +1,8 @@
 <?php
 
-//  $_POST['test'] --> yung ibinato ng script.js
+//  $_POST['search'] --> yung ibinato ng script.js
 $search = $_POST['test'];
-
-// if($search == "") {
-// 	echo "<p style='color:red;'>Empty!</p>";
-// }else {
-// 	echo $search;
-// }
-
-
-if($search == "") {
-	echo true;
-} else {
-	echo false;
-}
-
+$search = strtolower($search);
 
 
 $pikachu = ["name" => "Pikachu",
@@ -61,6 +48,20 @@ $pokedex = ["pikachu" => $pikachu,
 			"charmander" => $charmander
 			];
 
+// if($search == "") {
+// 	echo "<p style='color:red;'>Empty!</p>";
+// }else {
+// 	echo $search;
+// }
+
+if($search == "") {
+	echo true;
+} elseif(array_key_exists($search, $pokedex)) {
+	echo json_encode ($pokedex[$search]);
+} else {
+	echo false;
+}
+			
 
 // SEARCHING FOR POKEDEX KEYS: MEMORY EXTENSIVE
 // foreach($pokedex as $i) {
@@ -69,12 +70,13 @@ $pokedex = ["pikachu" => $pikachu,
 // 	}
 // }
 
+
 // SHORTHAND
-if(array_key_exists($search, $pokedex)){
-	echo json_encode ($pokedex[$search]);
-} else {
-	echo "";
-} 
+// if(array_key_exists($search, $pokedex)){
+// 	echo json_encode ($pokedex[$search]);
+// } else {
+// 	echo "";
+// } 
 
 
 ?>
