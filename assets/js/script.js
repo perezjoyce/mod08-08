@@ -30,7 +30,7 @@ $(document).ready(()=> {
 					else if (data == false) { 
 						$("#summary").html("");
 						$("#summary").css("color","green");
-						$("#summary").html("Wrong!");
+						$("#summary").html("Sorry, no info.");
 					}
 
 					else {
