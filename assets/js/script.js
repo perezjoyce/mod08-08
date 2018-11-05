@@ -22,6 +22,7 @@ $(document).ready(()=> {
 				// data will hold all value echoed by process.php
 				"success" :(data)=> {
 
+
 					if (data == true) {
 						$("#summary").css("color","red");
 						$("#summary").html("Empty!");
@@ -34,7 +35,11 @@ $(document).ready(()=> {
 					}
 
 					else {
+						alert(data);
+						//JSON.parse(data) allows us to construct the JS value or object described by the JSON string
 						let pokemonCaught = JSON.parse(data);
+
+						// alert(pokemonCaught);
 						$("#summary").html(""); // TO PREVENT FROM CONCATINATION TO EMPTY
 						$("#summary").css("color","gray");
 						$("#summary").append("Name: " + pokemonCaught.name + "<br>");

@@ -57,6 +57,7 @@ $pokedex = ["pikachu" => $pikachu,
 if($search == "") {
 	echo true;
 } elseif(array_key_exists($search, $pokedex)) {
+	//json_encode allows us to return the JSON representative of a value
 	echo json_encode ($pokedex[$search]);
 } else {
 	echo false;
